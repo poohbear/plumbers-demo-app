@@ -1,6 +1,8 @@
 'use strict';
 
-require('dotenv').config();
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
 
 let express = require('express');
 let path = require('path');
@@ -41,7 +43,7 @@ app.use('/', routes);
 app.use('/api', api);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   let err = new Error('Not Found');
   err.status = 404;
   next(err);
