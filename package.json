@@ -18,10 +18,10 @@
   "contributors": [],
   "repository": {
     "type": "git",
-    "url": "https://github.com/stoe/plumbers-demo-app.git"
+    "url": "https://github.com/universetrainingday/plumbers-demo-app.git"
   },
   "bugs": {
-    "url": "https://github.com/stoe/plumbers-demo-app/issues"
+    "url": "https://github.com/universetrainingday/plumbers-demo-app/issues"
   },
   "engines": {
     "node": ">=6.3",
