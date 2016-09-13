@@ -121,7 +121,7 @@ router.post('/', (req, res) => {
       'closed', 'assigned', 'unassigned', 'labeled', 'unlabeled'
     ];
 
-  if (isPR && !ignoreActions.includes(action) && triggerActions.includes(action)) {
+  if (isPR) {
 
     // *** Pull Requests & Commits ***
 
@@ -152,7 +152,7 @@ router.post('/', (req, res) => {
       res.sendStatus(200);
     }).catch(sendErrorResponse.bind(res));
 
-  } else if (isComment && triggerActions.includes(action)) {
+  } else if (isComment) {
 
     // *** Comments ***
 
