@@ -31,9 +31,9 @@ client.authenticate({
  */
 function doNothing(res) {
   // <debug>
-  // console.log('\n-----\n');
-  // console.log(chalk.red('do nothing'));
-  // console.log('\n-----\n');
+  console.log('\n-----\n');
+  console.log(chalk.red('do nothing'));
+  console.log('\n-----\n');
   // </debug>
 
   res.sendStatus(204);
@@ -45,9 +45,9 @@ function doNothing(res) {
  */
 function sendErrorResponse(error) {
   // <debug>
-  // console.log('\n-----\n');
-  // console.log(chalk.red('ERROR'), error);
-  // console.log('\n-----\n');
+  console.log('\n-----\n');
+  console.log(chalk.red('ERROR'), error);
+  console.log('\n-----\n');
   // </debug>
 
   this.sendStatus(500);
@@ -101,9 +101,9 @@ router.post('/', (req, res) => {
   }
 
   // <debug>
-  // console.log('\n-----\n');
-  // console.log(chalk.yellow('body'), body);
-  // console.log('\n-----\n');
+  console.log('\n-----\n');
+  console.log(chalk.yellow('body'), body);
+  console.log('\n-----\n');
   // </debug>
 
   // api needed data
@@ -121,18 +121,18 @@ router.post('/', (req, res) => {
       'closed', 'assigned', 'unassigned', 'labeled', 'unlabeled'
     ];
 
-  if (isPR && !ignoreActions.includes(action) && triggerActions.includes(action)) {
+  if (isPR) {
 
     // *** Pull Requests & Commits ***
 
     // <debug>
-    // console.log('\n-----\n');
-    // console.log(chalk.yellow('PR'));
-    // console.log('\n-----\n');
+    console.log('\n-----\n');
+    console.log(chalk.yellow('PR'));
+    console.log('\n-----\n');
     // </debug>
 
     let pr = body.pull_request,
-      user = pr.user.login,
+      user = body.organization.login,
       sha = pr.head.sha;
 
     let options = {
@@ -152,19 +152,19 @@ router.post('/', (req, res) => {
       res.sendStatus(200);
     }).catch(sendErrorResponse.bind(res));
 
-  } else if (isComment && triggerActions.includes(action)) {
+  } else if (isComment) {
 
     // *** Comments ***
 
     // <debug>
-    // console.log('\n-----\n');
-    // console.log(chalk.yellow('COMMENT'));
-    // console.log('\n-----\n');
+    console.log('\n-----\n');
+    console.log(chalk.yellow('COMMENT'));
+    console.log('\n-----\n');
     // </debug>
 
     let comment = body.comment,
       issue = body.issue,
-      user = issue.user.login,
+      user = body.organization.login,
       number = issue.number;
 
     client.pullRequests.getCommits({
