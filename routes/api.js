@@ -132,7 +132,7 @@ router.post('/', (req, res) => {
     // </debug>
 
     let pr = body.pull_request,
-      user = organization.login,
+      user = body.organization.login,
       sha = pr.head.sha;
 
     let options = {
@@ -164,7 +164,7 @@ router.post('/', (req, res) => {
 
     let comment = body.comment,
       issue = body.issue,
-      user = organization.login,
+      user = body.organization.login,
       number = issue.number;
 
     client.pullRequests.getCommits({
