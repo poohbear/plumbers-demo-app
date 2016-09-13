@@ -31,9 +31,9 @@ client.authenticate({
  */
 function doNothing(res) {
   // <debug>
-  // console.log('\n-----\n');
-  // console.log(chalk.red('do nothing'));
-  // console.log('\n-----\n');
+  console.log('\n-----\n');
+  console.log(chalk.red('do nothing'));
+  console.log('\n-----\n');
   // </debug>
 
   res.sendStatus(204);
@@ -45,9 +45,9 @@ function doNothing(res) {
  */
 function sendErrorResponse(error) {
   // <debug>
-  // console.log('\n-----\n');
-  // console.log(chalk.red('ERROR'), error);
-  // console.log('\n-----\n');
+  console.log('\n-----\n');
+  console.log(chalk.red('ERROR'), error);
+  console.log('\n-----\n');
   // </debug>
 
   this.sendStatus(500);
@@ -101,9 +101,9 @@ router.post('/', (req, res) => {
   }
 
   // <debug>
-  // console.log('\n-----\n');
-  // console.log(chalk.yellow('body'), body);
-  // console.log('\n-----\n');
+  console.log('\n-----\n');
+  console.log(chalk.yellow('body'), body);
+  console.log('\n-----\n');
   // </debug>
 
   // api needed data
@@ -126,9 +126,9 @@ router.post('/', (req, res) => {
     // *** Pull Requests & Commits ***
 
     // <debug>
-    // console.log('\n-----\n');
-    // console.log(chalk.yellow('PR'));
-    // console.log('\n-----\n');
+    console.log('\n-----\n');
+    console.log(chalk.yellow('PR'));
+    console.log('\n-----\n');
     // </debug>
 
     let pr = body.pull_request,
@@ -157,9 +157,9 @@ router.post('/', (req, res) => {
     // *** Comments ***
 
     // <debug>
-    // console.log('\n-----\n');
-    // console.log(chalk.yellow('COMMENT'));
-    // console.log('\n-----\n');
+    console.log('\n-----\n');
+    console.log(chalk.yellow('COMMENT'));
+    console.log('\n-----\n');
     // </debug>
 
     let comment = body.comment,
